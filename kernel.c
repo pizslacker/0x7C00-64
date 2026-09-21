@@ -159,9 +159,10 @@ void check_cpu_features(void) {
  * -------------------------------------------------------------------------- */
 void main(void) {
     clear_screen();
-<<<<<<< HEAD
 
     print_str("0x7C00-64 Boot Success! Long Mode Active.\n\n", WHITE_ON_BLACK);
+
+    print_str("Hello, 64-bit World!.\n\n", WHITE_ON_BLACK);
 
     char vendor[13];
     get_cpu_vendor(vendor);
@@ -170,8 +171,5 @@ void main(void) {
     print_str("\n\n", WHITE_ON_BLACK);
 
     check_cpu_features();
+
 }
-=======
-    print_string("Hello, 64-bit World!", 12, 30);
-}
->>>>>>> 0848b8479bc94de05088c334600958b536337bac
