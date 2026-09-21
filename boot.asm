@@ -1,4 +1,4 @@
-; SectorZero - Bare-Metal x86_64 Bootloader & Minimal C Kernel
+; 0x7C00-64 - Bare-Metal x86_64 Bootloader & Minimal C Kernel
 ; Licensed under GPLv3
 
 [org 0x7C00]
