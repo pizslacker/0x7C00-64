@@ -60,3 +60,51 @@ sudo pacman -S base-devel nasm qemu-system-x86
 ```Bash
 sudo dnf install gcc nasm qemu-system-x86
 ```
+
+### Building and Running
+1. Build the Disk Image
+Compile all assembly shims and C files into flat binaries, concatenate them, and pad the resulting image:
+
+```Bash
+make
+```
+
+Output files in build/:
+```text
+build/boot.bin: 512-byte MBR boot sector terminated by 0xAA55.
+
+build/kernel.bin: 64-bit flat kernel binary.
+
+build/sectorzero.img: 16 KB raw bootable image.
+```
+
+2. Boot in QEMU
+Launch QEMU with the raw image attached as a drive:
+
+```Bash
+make run
+```
+
+3. Debug with GDB
+To inspect the boot sequence and transition from real mode to long mode step by step:
+
+Launch QEMU with a halted CPU listening on port 1234:
+
+```Bash
+make debug
+```
+
+In a separate terminal, connect GDB:
+
+```Bash
+gdb -ex "target remote localhost:1234" \
+    -ex "set architecture i8086" \
+    -ex "break *0x7C00" \
+    -ex "continue"
+```
+(Switch architectures via set architecture i386:x86-64 after the long mode transition).
+
+4. Clean Build Files
+```Bash
+make clean
+```
