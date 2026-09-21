@@ -2,14 +2,14 @@
 
 A bare-metal `x86_64` bootloader and freestanding `64-bit` `C` kernel implementation built from scratch without external libraries, runtimes, or modern firmware abstraction layers (`UEFI`).
 
-**0x7C00-64** boots directly on bare silicon or an emulator in `16-bit Real Mode` via the `Master Boot Record` (`MBR`), loads kernel sectors from disk, constructs a `4-level paging hierarchy` (`PML4`), transitions into `64-bit Long Mode` via `PAE` and the EFER `Model-Specific Register` (`MSR`), and displays text using the memory-mapped VGA frame buffer (`0xB8000`).
+**0x7C00-64** boots directly on bare silicon or an emulator (`QEMU`) in `16-bit Real Mode` via the `Master Boot Record` (`MBR`), loads kernel sectors from disk, constructs a `4-level paging hierarchy` (`PML4`), transitions into `64-bit Long Mode` via `PAE` and the EFER `Model-Specific Register` (`MSR`), and displays text using the memory-mapped VGA frame buffer (`0xB8000`).
 
 ---
 
 ## Technical Overview
 
 - **MBR Stage (`boot.asm`)**:
-  - Initializes segments, registers, and the stack at `0x7C00`.
+  - Initializes segments, registers, and the stack at [`0x7C00`](https://stackoverflow.com/questions/51995987/bios-and-address-0x07c00).
   - Executes BIOS `INT 0x13, AH=0x02` to load kernel sectors from the boot medium into RAM starting at physical address `0x10000`.
   - Identity maps the lower 2 MB of physical memory using a 2 MB huge page across three tables located from `0x1000` to `0x4000`:
     - **PML4** (Page Map Level 4) at `0x1000`
@@ -108,6 +108,19 @@ gdb -ex "target remote localhost:1234" \
 ```Bash
 make clean
 ```
+
+### Memory Map
+| Physical Address Range | Usage / Mapped Region |
+|------------------------|--------------------------------
+| `0x00000 - 0x003FF` | Real Mode Interrupt Vector Table (IVT) |
+| `0x00400 - 0x004FF` | BIOS Data Area (BDA) |
+| `0x01000 - 0x01FFF` | Page Map Level 4 (PML4) |
+| `0x02000 - 0x02FFF` | Page Directory Pointer Table (PDPT) |
+| `0x03000 - 0x03FFF` | Page Directory (PD) with 2MB Identity Page |
+| `0x07C00 - 0x07DFF` | MBR Bootloader Binary (boot.bin) |
+| `0x10000 - 0x13FFF` | Loaded 64-Bit C Kernel (kernel.bin) |
+| `0x80000 - 0x90000` | 64-bit Stack Space (Top at 0x90000) |
+| `0xB8000 - 0xB8FA0` | Color Text VGA Buffer (80 columns × 25 rows) |
 
 ### License
 This project is open-source software licensed under the GNU General Public License v3.0 (GPLv3). See the [LICENSE](LICENSE) file for terms and conditions.

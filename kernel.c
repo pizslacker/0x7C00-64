@@ -1,11 +1,19 @@
 /*
  * 0x7C00-64 - Bare-Metal x86_64 Bootloader & Minimal C Kernel
- * Licensed under GPLv3
- */
-
-/*
- * 0x7C00-64 - Bare-Metal x86_64 Bootloader & Minimal C Kernel
- * Licensed under GPLv3
+ * Copyright (C) 2026
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
 #include <stdint.h>
@@ -151,6 +159,7 @@ void check_cpu_features(void) {
  * -------------------------------------------------------------------------- */
 void main(void) {
     clear_screen();
+<<<<<<< HEAD
 
     print_str("0x7C00-64 Boot Success! Long Mode Active.\n\n", WHITE_ON_BLACK);
 
@@ -162,3 +171,7 @@ void main(void) {
 
     check_cpu_features();
 }
+=======
+    print_string("Hello, 64-bit World!", 12, 30);
+}
+>>>>>>> 0848b8479bc94de05088c334600958b536337bac
