@@ -40,3 +40,23 @@ A bare-metal `x86_64` bootloader and freestanding `64-bit` `C` kernel implementa
 ├── kernel_entry.asm  # 64-bit assembly wrapper calling C main()
 ├── kernel.c          # Freestanding 64-bit C kernel driving VGA text memory
 └── linker.ld         # Linker script locating code at 0x10000
+```
+
+### Prerequisites
+Building requires standard x86_64 development utilities, NASM, and QEMU.
+
+#### Debian / Ubuntu / Mint
+```Bash
+sudo apt update
+sudo apt install build-essential nasm qemu-system-x86
+```
+
+#### Arch Linux
+```Bash
+sudo pacman -S base-devel nasm qemu-system-x86
+```
+
+#### Fedora
+```Bash
+sudo dnf install gcc nasm qemu-system-x86
+```
