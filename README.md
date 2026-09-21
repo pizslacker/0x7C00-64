@@ -108,3 +108,6 @@ gdb -ex "target remote localhost:1234" \
 ```Bash
 make clean
 ```
+
+### License
+This project is open-source software licensed under the GNU General Public License v3.0 (GPLv3). See the LICENSE file for terms and conditions.
