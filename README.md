@@ -9,7 +9,7 @@ A bare-metal `x86_64` bootloader and freestanding `64-bit` `C` kernel implementa
 ## Technical Overview
 
 - **MBR Stage (`boot.asm`)**:
-  - Initializes segments, registers, and the stack at `0x7C00`.
+  - Initializes segments, registers, and the stack at [`0x7C00`](https://stackoverflow.com/questions/51995987/bios-and-address-0x07c00).
   - Executes BIOS `INT 0x13, AH=0x02` to load kernel sectors from the boot medium into RAM starting at physical address `0x10000`.
   - Identity maps the lower 2 MB of physical memory using a 2 MB huge page across three tables located from `0x1000` to `0x4000`:
     - **PML4** (Page Map Level 4) at `0x1000`
