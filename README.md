@@ -63,6 +63,7 @@ sudo dnf install gcc nasm qemu-system-x86
 
 ### Building and Running
 1. Build the Disk Image
+
 Compile all assembly shims and C files into flat binaries, concatenate them, and pad the resulting image:
 
 ```Bash
@@ -79,6 +80,7 @@ build/0x7C00-64.img: 16 KB raw bootable image.
 ```
 
 2. Boot in QEMU
+
 Launch QEMU with the raw image attached as a drive:
 
 ```Bash
@@ -86,6 +88,7 @@ make run
 ```
 
 3. Debug with GDB
+
 To inspect the boot sequence and transition from real mode to long mode step by step:
 
 Launch QEMU with a halted CPU listening on port 1234:
