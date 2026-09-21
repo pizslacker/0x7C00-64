@@ -75,7 +75,7 @@ build/boot.bin: 512-byte MBR boot sector terminated by 0xAA55.
 
 build/kernel.bin: 64-bit flat kernel binary.
 
-build/sectorzero.img: 16 KB raw bootable image.
+build/0x7C00-64.img: 16 KB raw bootable image.
 ```
 
 2. Boot in QEMU
