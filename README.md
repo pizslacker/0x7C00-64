@@ -33,6 +33,7 @@ A bare-metal `x86_64` bootloader and freestanding `64-bit` `C` kernel implementa
 
 ```text
 .
+├── LICENSE           # GPLv3 license
 ├── Makefile          # Build scripts, emulator runners, and debug targets
 ├── README.md         # Architecture documentation and usage guide
 ├── LICENSE           # GNU General Public License v3 (GPLv3)
