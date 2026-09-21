@@ -109,5 +109,18 @@ gdb -ex "target remote localhost:1234" \
 make clean
 ```
 
+### Memory Map
+| Physical Address Range | Usage / Mapped Region |
+|------------------------|--------------------------------
+| 0x00000 - 0x003FF | Real Mode Interrupt Vector Table (IVT) |
+| 0x00400 - 0x004FF | BIOS Data Area (BDA) |
+| 0x01000 - 0x01FFF | Page Map Level 4 (PML4) |
+| 0x02000 - 0x02FFF | Page Directory Pointer Table (PDPT) |
+| 0x03000 - 0x03FFF | Page Directory (PD) with 2MB Identity Page |
+| 0x07C00 - 0x07DFF | MBR Bootloader Binary (boot.bin) |
+| 0x10000 - 0x13FFF | Loaded 64-Bit C Kernel (kernel.bin) |
+| 0x80000 - 0x90000 | 64-bit Stack Space (Top at 0x90000) |
+| 0xB8000 - 0xB8FA0 | Color Text VGA Buffer (80 columns × 25 rows) |
+
 ### License
 This project is open-source software licensed under the GNU General Public License v3.0 (GPLv3). See the [LICENSE](LICENSE) file for terms and conditions.
