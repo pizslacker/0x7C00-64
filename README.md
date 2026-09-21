@@ -2,7 +2,7 @@
 
 A bare-metal `x86_64` bootloader and freestanding `64-bit` `C` kernel implementation built from scratch without external libraries, runtimes, or modern firmware abstraction layers (`UEFI`).
 
-**0x7C00-64** boots directly on bare silicon or an emulator in `16-bit Real Mode` via the `Master Boot Record` (`MBR`), loads kernel sectors from disk, constructs a `4-level paging hierarchy` (`PML4`), transitions into `64-bit Long Mode` via `PAE` and the EFER Model-Specific Register (`MSR`), and displays text using the memory-mapped VGA frame buffer (`0xB8000`).
+**0x7C00-64** boots directly on bare silicon or an emulator in `16-bit Real Mode` via the `Master Boot Record` (`MBR`), loads kernel sectors from disk, constructs a `4-level paging hierarchy` (`PML4`), transitions into `64-bit Long Mode` via `PAE` and the EFER `Model-Specific Register` (`MSR`), and displays text using the memory-mapped VGA frame buffer (`0xB8000`).
 
 ---
 
