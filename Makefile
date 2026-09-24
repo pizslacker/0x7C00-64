@@ -51,7 +51,7 @@ $(KERNEL_BIN): $(KERNEL_OBJS) linker.ld
 	$(LD) $(LDFLAGS) -o $@ $(KERNEL_OBJS)
 
 run: $(TARGET_IMG)
-	$(QEMU) -drive format=raw,file=$(TARGET_IMG)
+	$(QEMU) -cpu host -enable-kvm -drive format=raw,file=$(TARGET_IMG)
 
 debug: $(TARGET_IMG)
 	$(QEMU) -s -S -drive format=raw,file=$(TARGET_IMG)
