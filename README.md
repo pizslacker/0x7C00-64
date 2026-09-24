@@ -36,7 +36,6 @@ A bare-metal `x86_64` bootloader and freestanding `64-bit` `C` kernel implementa
 ├── LICENSE           # GPLv3 license
 ├── Makefile          # Build scripts, emulator runners, and debug targets
 ├── README.md         # Architecture documentation and usage guide
-├── LICENSE           # GNU General Public License v3 (GPLv3)
 ├── boot.asm          # 16-bit MBR bootloader, paging table setup, and Long Mode jump
 ├── kernel.c          # Freestanding 64-bit C kernel driving VGA text memory
 ├── kernel_entry.asm  # 64-bit assembly wrapper calling C main()
