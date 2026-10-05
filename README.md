@@ -126,4 +126,7 @@ make clean
 | `0xB8000 - 0xB8FA0` | Color Text VGA Buffer (80 columns × 25 rows) |
 
 ### License
+
 This project is open-source software licensed under the GNU General Public License v3.0 (GPLv3). See the [LICENSE](LICENSE) file for terms and conditions.
+
+Copyright (C) k!M/pizslacker 2026
