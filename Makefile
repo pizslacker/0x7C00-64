@@ -1,5 +1,5 @@
 # ==============================================================================
-# 0x7C00-64 - Bare-Metal x86_64 Bootloader & C Kernel (GPLv3)
+# SectorZero-64 - Bare-Metal x86_64 Bootloader & C Kernel (GPLv3)
 # Copyright (C) k!M/pizslacker 2026
 # ==============================================================================
 
@@ -21,7 +21,7 @@ ASFLAGS := -f elf64
 
 BUILD_DIR := build
 
-TARGET_IMG  := $(BUILD_DIR)/0x7C00-64.img
+TARGET_IMG  := $(BUILD_DIR)/SectorZero-64.img
 BOOT_BIN    := $(BUILD_DIR)/boot.bin
 KERNEL_BIN  := $(BUILD_DIR)/kernel.bin
 KERNEL_OBJS := $(BUILD_DIR)/kernel_entry.o $(BUILD_DIR)/kernel.o
